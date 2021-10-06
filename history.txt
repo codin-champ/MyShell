@@ -1,0 +1,12 @@
+echo "Hello" > output.txt
+cat output.txt
+cat < parse.c
+sort < history.txt > output.txt
+cat output.txt
+cat output.txt | wc -l
+cat output.txt | tail -3 | head -2
+ls | grep .*.txt > output.txt
+cat output.txt
+cat < parse.c | wc -l > output.txt
+cat output.txt
+
