@@ -92,36 +92,9 @@ These commands have been defined by me and are contained within the shell itself
 - Upon termination of a background process, the shell prints its PID and exit status.
 - Handles `&` no matter where it is in the end. eg. `gedit& , gedit         &, ls -l&`.
 
-### Additional Commands
-
-1. `pinfo [PID]`
-
-    - Prints numerous details about the process such as its status, memory, and executable path.
-    - Just `pinfo` with no arguments gives details of the shell.
-    - Implemented in [pinfo.c](pinfo.c)
-
-2. `history [num]`
-
-    - Lists the last [num] commands. If no arguments are specified, it displays the last 10 commands.
-    - Retains the `history` even upon Shell exit - uses [history.txt](history.text).
-    - Implemented in [history.c](history.c) 
-
-3. `nightswatch -n [seconds] [dirty/interrupt]`
-
-    - `interrupt` argument prints the number of times CPU has been interrupted by keyboard.
-    - `dirty` argument prints size of the dirty part of memory.
-    - Executes every `n` number of seconds as specified by user.
-    - Exits when symbol `q` is pressed.
-    - Error handling done for incorrect arguments.
-
-5. `cronjob -c [command] -t [time_period] -p [duration]`
-
-    - Runs the command every t seconds until p time gets over.
-    - Cron runs in the background so you can continue using the shell whilst the command is executed periodically
-
 ## Additional Features
 
-1. `​CTRL-Z`
+1. `CTRL-Z`
 
     - Changes the status of currently running job to stop, and pushes it to the background.
 
