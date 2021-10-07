@@ -90,9 +90,6 @@ void exit_handler(int p)
 
 int main()
 {
-    //int fg_process_id = -1;
-
-
     for(int i=0; i<20; i++)
     {
         background[i].id = 0;

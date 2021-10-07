@@ -16,3 +16,5 @@
 #include <stdbool.h>
 #include<sys/wait.h>
 #include<sys/prctl.h>
+#include<sys/time.h>
+#include<termios.h>

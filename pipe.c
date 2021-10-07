@@ -12,11 +12,8 @@
 #include "signal.h"
 #include "bg.h"
 #include "fg.h"
+#include "baywatch.h"
 void redirection(char *command, background_jobs *background_job, int *background_count, char *present, int *fg_process_id);
-
-void pipe_handler(char *command)
-{
-}
 
 void Execute(char *string, int background, background_jobs *background_job, int *background_count, char *present, int *fg_process_id)
 {
@@ -58,6 +55,11 @@ void Execute(char *string, int background, background_jobs *background_job, int 
     {
         char *input = strtok(NULL, "\n");
         echo_str(input);
+    }
+    else if(strcmp(order, "baywatch")==0)
+    {
+        char *input = strtok(NULL, "\n");
+        handle_baywatch(input, background_job, *background_count);
     }
     else if (strcmp(order, "repeat") == 0)
     {
@@ -262,7 +264,7 @@ void Execute(char *string, int background, background_jobs *background_job, int 
                 setpgid(0, 0);
                 //printf("%s100\n",input);
                 int len = strlen(argv[0]);
-                printf("%s  %s   %s", argv[0], argv[1], argv[2]);
+                //printf("%s  %s   %s", argv[0], argv[1], argv[2]);
                 if (execvp(argv[0], argv) < 0)
                 {
                     perror("Could not execute command");
@@ -278,7 +280,7 @@ void Execute(char *string, int background, background_jobs *background_job, int 
             if (pid < 0)
             {
                 perror("Could not execute command");
-                printf("%s  %s   %s", argv[0], argv[1], argv[2]);
+                //printf("%s  %s   %s", argv[0], argv[1], argv[2]);
                 exit(1);
             }
             else if (pid > 0)
@@ -302,7 +304,7 @@ void Execute(char *string, int background, background_jobs *background_job, int 
             else
             {
                 setpgid(0, 0);
-                printf("%s  %s   %s", argv[0], argv[1], argv[2]);
+                //printf("%s  %s   %s", argv[0], argv[1], argv[2]);
                 if (execvp(argv[0], argv) < 0)
                 {
                     perror("Could not execute command");
