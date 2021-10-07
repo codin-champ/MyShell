@@ -74,12 +74,12 @@ void KillForegroundProcess(int p)
 
     if(fg_process_id!=-1)
     {
-    kill(fg_process_id,SIGINT);
-    fg_process_id=-1;
+        kill(fg_process_id,SIGINT);
+        fg_process_id=-1;
     }
     printf("\n");
-    //Username();
-    //curdir(start_dir);
+    Username();
+    curdir(start_dir);
     fflush(stdout);
 }
 
