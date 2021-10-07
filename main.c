@@ -62,9 +62,9 @@ void Push_to_background(int p)
         background[background_count].id = fg_process_id;
         background_count++;
     }
-    //printf("\n");
-    //Username();
-    //curdir(start_dir);
+    printf("\n");
+    Username();
+    curdir(start_dir);
     fflush(stdout);
 }
 
